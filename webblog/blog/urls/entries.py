@@ -23,10 +23,6 @@ entry_info_dict_detail = {
 	'date_field':'pub_date',
 }
 
-#urlpatterns = patterns('django.views.generic.dates',
-#	url(r'^$','ArchiveIndexView',entry_info_dict),
-#)
-
 urlpatterns = patterns('',
 	url(r'$^',ArchiveIndexView.as_view(**entry_info_dict),name='entry_archive_index'),
 	url(r'^(?P<year>\d{4})/$',YearArchiveView.as_view(**entry_info_dict_year),name='entry_archive_year'),
@@ -34,5 +30,4 @@ urlpatterns = patterns('',
 	url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/$',DayArchiveView.as_view(**entry_info_dict),name='entry_archive_day'),
 	url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',DateDetailView.as_view(**entry_info_dict_detail),name='entry_archive_detail'),
 )
-		
-	
+

@@ -1,0 +1,4 @@
+<h2>{{ link.title }} </h2>
+	<p>Published on {{ link.pub_date|date:"F j,Y"}}</p>
+			{{ link.description_html|truncatewords_html:"50"|safe }}
+<p><a href="{{ link.get_absolute_url }}">Read full link </a></p>

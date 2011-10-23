@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}
+		<h1>Links index </h1>
+{% endblock %}
+{% block content %}
+	{% for link in object_list %}
+		{% include "blog/link_item.html" %}
+	{% endfor %}
+{% endblock %}
+
+

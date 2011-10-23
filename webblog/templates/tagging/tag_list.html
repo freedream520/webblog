@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}
+		<h1>Tags index </h1>
+{% endblock %}
+{% block content %}
+	{% for tag in object_list %}
+	<h2>{{ tag.name }} </h2>
+	{% endfor %}
+{% endblock %}
+
+

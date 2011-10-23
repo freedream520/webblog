@@ -1,0 +1,4 @@
+<h2>{{ category.title }} </h2>
+	slug:{{ category.slug }}<br/>
+	description:{{ category.description|truncatewords_html:"50"|safe }}
+<p><a href="{{ category.get_absolute_url }}">Read full category </a></p>
