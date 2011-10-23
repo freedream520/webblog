@@ -1,14 +1,17 @@
-{% extends "base.html" %}
-{% block title %}
-		<h1>Entries index </h1>
-{% endblock %}
+{% extends "base_entries.html" %}
+{% block title %}{{ block.super }}|{{ year }}{% endblock %}
 {% block content %}
-	{% for d in date_list %}
-	{{ d }}
-	{% endfor %}
-		{% for entry in object_list %}
-			{% include "blog/entry_item.html" %}
-		{% endfor %}
+<ul>
+{% for month in date_list %}
+<li>
+<a href="/entry/{{ year }}/{{ month|date:"b" }}/">{{ month|date:"F" }}</a>
+</li>
+{% endfor %}
+</ul>
+{% endblock %}
+{% block whatis %}
+<p>This is a list of months in {{ year }} in which I published entries in
+my blog.</p>
 {% endblock %}
 
 
