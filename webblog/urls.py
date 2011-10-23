@@ -4,6 +4,7 @@ from django.contrib import admin
 #import blog.urls.entries
 #import blog.urls.links
 from blog.urls import entries,links,categories,tags
+from tagging.urls import tags
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -11,5 +12,5 @@ urlpatterns = patterns('',
 	url(r'^blog/',include(entries)),
 	url(r'^link/',include(links)),
 	url(r'^category/',include(categories)),
-	url(r'^tags/',include(tags)),
+	url(r'^tag/',include(tags)),
 )
