@@ -1,4 +1,4 @@
-# Django settings for djtest project.
+# Django settings for webblog project.
 
 import os.path
 import string
