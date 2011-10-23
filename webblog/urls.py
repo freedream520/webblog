@@ -3,7 +3,7 @@ from django.conf import settings
 from django.contrib import admin
 #import blog.urls.entries
 #import blog.urls.links
-from blog.urls import entries,links,categories,tags
+from blog.urls import entries,links,categories
 from tagging.urls import tags
 admin.autodiscover()
 

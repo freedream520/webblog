@@ -20,6 +20,10 @@ class Category(models.Model):
 	def get_absolute_url(self):
 		return "/categories/%s/" % self.slug
 
+class LiveEntryManager(models.Manager):
+	def get_query_set(self):
+		return super(LiveEntryManager,self).get_query_set().filter(status=self.model.LIVE_STATUS)
+
 class Entry(models.Model):
 	LIVE_STATUS = 1
 	DRAFT_STATUS = 2
@@ -47,12 +51,15 @@ class Entry(models.Model):
 	categories = models.ManyToManyField(Category)
 	tags = TagField()
 	
+	objects = models.Manager()
+	live = LiveEntryManager()
+
 	def save(self):
 		self.body_html = markdown(self.body)
 		if self.excerpt:
 			self.excerpt_html = markdown(self.excerpt)
 		super(Entry,self).save()
-
+	
 	class Meta:
 		verbose_name_plural = "Entries"
 		ordering = ['-pub_date']
@@ -67,7 +74,7 @@ class Entry(models.Model):
 #			'month':self.pub_date.strftime("%b").lower(),
 #			'day':self.pub_date.strftime("%d"),
 #			'slug':self.slug })
-#
+
 
 class Link(models.Model):
 	title = models.CharField(max_length=250)

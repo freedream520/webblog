@@ -3,7 +3,7 @@ from django.views.generic.dates import *
 from blog.models import Entry
 
 entry_info_dict = {
-	'queryset':Entry.objects.all(),
+	'queryset':Entry.live.all(),
 	'paginate_by':10,
 	'allow_empty':True,
 	'date_field':'pub_date',
