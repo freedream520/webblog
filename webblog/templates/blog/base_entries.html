@@ -2,8 +2,10 @@
 {% block title %}|Entries{% endblock %}
 {% block bodyclass %}entries{% endblock %}
 {% block whatis %}
+
 <p>This is an entry posted to my blog on
 {{ object.pub_date|date:"F j, Y" }}.</p>
+
 {% if object.categories.count %}
 <p>This entry is part of the
 category{{ object.categories.count|pluralize:"y,ies" }}
@@ -18,5 +20,4 @@ category{{ object.categories.count|pluralize:"y,ies" }}
 <p>This entry isn't part of any categories.</p>
 {% endif %}
 {% endblock %}
-
 

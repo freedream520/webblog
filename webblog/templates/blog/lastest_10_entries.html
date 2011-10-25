@@ -1,0 +1,5 @@
+<ul>
+{% for entry in lastest_10 %}
+<li>#{{ entry.id }}|<a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>[{{ entry.pub_date|date:"Y-m-d"  }}]</li>
+{% endfor %}
+</ul>
