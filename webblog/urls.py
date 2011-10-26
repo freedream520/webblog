@@ -1,11 +1,18 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
-from django.contrib import admin
 from django.views.generic.simple import direct_to_template
+from django.contrib import admin
+admin.autodiscover()
 from django.conf.urls.static import static
+
 from blog.urls import entries,links,categories
 from tagging.urls import tags
-admin.autodiscover()
+
+#for feed
+from blog.feed import *
+feeds_url_2_view = {
+	'recent':RecentEntries
+}
 
 urlpatterns = patterns('',
 	url(r'^admin/',include(admin.site.urls)),
@@ -15,6 +22,8 @@ urlpatterns = patterns('',
 	url(r'^category/',include(categories)),
 	url(r'^tag/',include(tags)),
 	url(r'^comments/',include('django.contrib.comments.urls')),
+	# for feed
+	url(r'^feeds/(?P<url>.*)/$','django.contrib.syndication.views.feed',{'feed_dict':feeds_url_2_view}),
 )
 
 
