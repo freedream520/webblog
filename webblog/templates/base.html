@@ -7,18 +7,20 @@
 		<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/global.css" media="screen"/>
 	</head>
 	<body >
-		<div id="header" class="header">
-				<h1 id="branding">My webblog</h1>
-				<hr/>
-		</div>
+		
 		<div id="main-box" class="mainBox">
-					<div id="content" class="content">
+			<div id="content" class="content">
 				{% block content %}
 				{% endblock %}
 			</div>
+                         <div id="header" class="header">
+				<h1 id="branding">My webblog</h1>
+				
+		</div>
 			<div id="sider" class="sider">
 				<h2>Navigation</h2>
 				<ul id="main-nav">
+						<a href="/feeds/recent/">Rss Feed</a>
 					<li id="main-nav-entries">
 						<a href="/entry/">Entries</a>
 					</li>
@@ -39,15 +41,15 @@
 				{% get_lastest_entries %}
 				{% block comments %}
 				{% endblock %}
-			</div>
 		</div>
-		<div id="footer">
-			<hr/>
-			 <p> Thanks for visting my site.Valid <a href="#">CSS</a> &amp; <a href="#">XHTML</a><br/>
+	</div>
+	<div id="clear_box" class="clear"></div>
+	<div id="footer" class="footer">
+		 <p> Thanks for visting my site.Valid <a href="#">CSS</a> &amp; <a href="#">XHTML</a><br/>
 			Designed by <a href="#" >ghh</a>
 			Tel:+086 029 84706459. <br/>
 			 Copyright(c)2011-2013.</p>
-		</div>
+	</div>
 	</body>
 </html>
 		

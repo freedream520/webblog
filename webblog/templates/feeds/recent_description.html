@@ -1,1 +1,1 @@
-{{ obj.abstract }}(by {{ obj.all_the_authors }} @{{ obj.pub_date }})
+{{ obj.excerpt_html|safe }}(by {{ obj.author }} @{{ obj.pub_date|date:"Y-m-d" }} |分类:{% for cg in obj.categories.all %}{{ cg.title }} {% endfor %})

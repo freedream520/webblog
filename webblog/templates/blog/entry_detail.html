@@ -18,8 +18,11 @@
 	{% endif %}
 	{% get_comment_form for blog.entry object.id as comment_form %}
 	<br/>
-	<input type="button" value="添加留言" onClick="document.getElementById('comment_box').style.display='block';">
+	<input  id="a_btn" type="button" value="添加留言" onClick="this.style.display='none';document.getElementById('comment_box').style.display='block';">
 	<div id="comment_box" style="display:none;" >
+	
+	<input type="button" value="关闭留言" onClick="document.getElementById('comment_box').style.display='none';document.getElementById('a_btn').style.display='block';">
+	
 	<table style="width:50%;background: none repeat scroll 0 0 #EEEEEE;">
 		<form action="{% comment_form_target %}" method="post">
 		{% csrf_token %}

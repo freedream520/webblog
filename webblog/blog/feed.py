@@ -1,5 +1,8 @@
 from django.contrib.syndication.feeds import Feed
+from django.contrib.sites.models import Site
 from blog.models import Entry
+
+current_site = Site.objects.get_current()
 
 class RecentEntries(Feed):
 	title = 'Webblog Entry | Recent Entries' 
