@@ -30,6 +30,7 @@ INSTALLED_APPS = (
 #####--start--  add your app's names ####
 	'blog',
 	'tagging',
+	'django.contrib.comments',
 #####---end--   add your app's names ####
 ##########################################
 )

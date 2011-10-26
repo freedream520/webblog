@@ -1,0 +1,16 @@
+.mianBox {
+	height:1000;
+	width:800;
+	text-align:center;
+}
+.header {
+	background: none repeat scroll 0 0 #EEEEEE;
+}
+.content {
+float:left;	
+	width:500;
+}
+.sider {
+float:left;
+	width:300;
+}

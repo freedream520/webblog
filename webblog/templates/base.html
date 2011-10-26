@@ -3,37 +3,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 	<head>
 		<title>iBlog:{% block title%} {% endblock %} </title>
+		{% load static %}
+		<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/global.css" media="screen"/>
 	</head>
-	<body class="{% block bodyclass %}{% endblock %}">
-		<div id="header">
-			<h1 id="branding">My webblog</h1>
-			<hr/>
+	<body >
+		<div id="header" class="header">
+				<h1 id="branding">My webblog</h1>
+				<hr/>
 		</div>
-		<div id="content">
-			{% block content %}
-			{% endblock %}
-		</div>
-		<div id="sider">
-			<h2>Navigation</h2>
-			<ul id="main-nav">
-				<li id="main-nav-entries">
-					<a href="/entry/">Entries</a>
-				</li>
-				<li id="mian-nav-links">
-					<a href="/link/">Links</a>
-				</li>
-				<li id="main-nav-categories">
-					<a href="/category/">Categories</a>
-				</li>
-				<li id="mian-nav-tags">
-					<a href="/tag/">Tags</a>
-				</li>
-			</ul>
-			<h2>What is this?</h2>
-			{% block whatis %}{% endblock %}
-			<h2>The lastest entries </h2>
-			{% load blog_tags %}
-			{% get_lastest_entries %}
+		<div id="main-box" class="mainBox">
+					<div id="content" class="content">
+				{% block content %}
+				{% endblock %}
+			</div>
+			<div id="sider" class="sider">
+				<h2>Navigation</h2>
+				<ul id="main-nav">
+					<li id="main-nav-entries">
+						<a href="/entry/">Entries</a>
+					</li>
+					<li id="mian-nav-links">
+						<a href="/link/">Links</a>
+					</li>
+					<li id="main-nav-categories">
+						<a href="/category/">Categories</a>
+					</li>
+					<li id="mian-nav-tags">
+						<a href="/tag/">Tags</a>
+					</li>
+				</ul>
+				<h2>What is this?</h2>
+				{% block whatis %}{% endblock %}
+				<h2>The lastest entries </h2>
+				{% load blog_tags %}
+				{% get_lastest_entries %}
+				{% block comments %}
+				{% endblock %}
+			</div>
 		</div>
 		<div id="footer">
 			<hr/>
