@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 
 from blog.urls import entries,links,categories
 from tagging.urls import tags
+from codeShare.urls import snippets
 
 #for feed
 from blog.feed import *
@@ -21,6 +22,7 @@ urlpatterns = patterns('',
 	url(r'^link/',include(links)),
 	url(r'^category/',include(categories)),
 	url(r'^tag/',include(tags)),
+	url(r'^snippet/',include(snippets)),
 	url(r'^comments/',include('django.contrib.comments.urls')),
 	# for feed
 	url(r'^feeds/(?P<url>.*)/$','django.contrib.syndication.views.feed',{'feed_dict':feeds_url_2_view}),

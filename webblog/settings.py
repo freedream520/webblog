@@ -12,7 +12,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DB_USER = 'ghh'
 DB_NAME = 'db_blog'
 DB_PWD = 'ghhpasswd'
-CACHE_BACKEND_URL = 'file:///home/ghh/webblog/webblog/cache_backend?timeout=60&max_entries=400'
+CACHE_BACKEND_URL = 'file:///home/ghh/webblog/cache_backend?timeout=60&max_entries=400'
 APPS_STATICFILES_DIRS = os.path.join(HERE , 'auto_complete/static/')
 DOMAIN_NAME = 'http://localhost:8000'
 ################################################
@@ -30,6 +30,7 @@ INSTALLED_APPS = (
 #####--start--  add your app's names ####
 	'blog',
 	'tagging',
+	'codeShare',
 	'django.contrib.comments',
 #####---end--   add your app's names ####
 ##########################################
