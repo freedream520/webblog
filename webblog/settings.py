@@ -13,7 +13,9 @@ DB_USER = 'ghh'
 DB_NAME = 'db_blog'
 DB_PWD = 'ghhpasswd'
 CACHE_BACKEND_URL = 'file:///home/ghh/webblog/cache_backend?timeout=60&max_entries=400'
-APPS_STATICFILES_DIRS = os.path.join(HERE , 'auto_complete/static/')
+APPS_STATICFILES_DIRS_blog = os.path.join(HERE , 'blog/static/')
+APPS_STATICFILES_DIRS_codeShare=os.path.join(HERE,'codeShare/static')
+				
 DOMAIN_NAME = 'http://localhost:8000'
 ################################################
 ##---end--- custome setting for the project.##
@@ -65,7 +67,8 @@ STATIC_ROOT = os.path.join( HERE,'static').replace('\\','/')
 STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 STATICFILES_DIRS = (
-    APPS_STATICFILES_DIRS.replace('\\','/'),
+    APPS_STATICFILES_DIRS_blog.replace('\\','/'),
+    APPS_STATICFILES_DIRS_codeShare.replace('\\','/'),
 )
 SECRET_KEY = '##z=90wf8(h+#+igu13+k1jdtj$uw*t3cyn=)n#_b+4)-r@cxm'
 TEMPLATE_LOADERS = (

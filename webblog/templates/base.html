@@ -5,36 +5,40 @@
 		<title>iBlog:{% block title%} {% endblock %} </title>
 		{% load static %}
 		<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/global.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/pygments.css" media="screen"/>
 	</head>
 	<body >
 		
 		<div id="main-box" class="mainBox">
+            <div id="header" class="header">
+				<h1 id="branding"  ><a href="/">My webblog</a></h1>
+	        	</div>
 			<div id="content" class="content">
 				{% block content %}
 				{% endblock %}
 			</div>
-                <div id="header" class="header">
-				<h1 id="branding">My webblog</h1>
-				
-		</div>
 			<div id="sider" class="sider">
 				<h2>Navigation</h2>
 				<ul id="main-nav">
 						<a href="/feeds/recent/">Rss Feed</a> |
 						<a href="/admin/">Admin</a>
 						<div class="my-hr"></div>
-					<li id="main-nav-entries">
-						<a href="/entry/">Entries</a>
+					<li id="main-nav-index">
+						<a href="/">首页</a>
 					</li>
-					<li id="mian-nav-links">
-						<a href="/link/">Links</a>
+					<li id="main-nav-entries">
+						<a href="/entry/">日志</a>
 					</li>
 					<li id="main-nav-categories">
-						<a href="/category/">Categories</a>
+						<a href="/category/">日志分类</a>
 					</li>
 					<li id="mian-nav-tags">
-						<a href="/tag/">Tags</a>
+						<a href="/tag/">日志标签</a>
 					</li>
+					<li id="mian-nav-snippets">
+						<a href="/snippet/">源代码</a>
+					</li>
+
 				</ul>
 				<h2>What is this?</h2>
 				{% block whatis %}{% endblock %}

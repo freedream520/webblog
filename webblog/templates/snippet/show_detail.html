@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2> this is the detail of the Snippet you want.</h2>
+
+<br/><h3>{{ obj.title }}</h3>
+语言类型：<a href="/snippet/lang/{{ obj.language.id }}/">{{ obj.language }}</a>
+<br/>
+作者： <a href="/people/{{ obj.author.id }}/">{{ obj.author }}</a>
+<br/>
+发表：{{ obj.pub_date|date:"Y.m.d" }}
+<br/> 代码说明: {{ obj.description }}
+<br/> <br/>源程序：
+<div id="hlt_code" style="border:2px olive;background:#eee;font-size:12px;">
+{{obj.highlighted_code|safe}}
+</div>
+<br/>
+Tag:{{ obj.tags}}
+<br/>
+最后更新于：{{ obj.update_date|date:"Y.m.d"}}
+
+{% endblock %}

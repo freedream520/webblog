@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<h2> this is the list of all the Snippets.</h2>
+<h2> 源代码</h2>
+<h3> 源代码列表 </h3>
 {% for snippet in obj_list %}
-<li> {{ snippet.title }}</li>
+<li><a href="/snippet/{{ snippet.id }}/">{{ snippet.title }}<a/></li>
+
 {% endfor %}
 
 {% endblock %}

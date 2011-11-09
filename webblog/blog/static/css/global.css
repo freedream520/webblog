@@ -56,20 +56,23 @@ a:hover
 	
 }
 .content {
-	width: 570px;
+	width: 590px;
 	float:left;
 	display: block;
-	margin-top:100px;
-        margin-left: 20px;
+	margin-top:10px;
+    padding-left:20px;
 	display: inline;
-	border-right: dotted 2px #bbb;
+	/*border-right: dotted 2px #bbb;*/
+	border:1px dashed green;
 }
 .sider {
-	width: 315px; 
+	width: 285px; 
 	float: right;
 	display:block;
 	margin-top: 10px;
-	margin-left:10px;
+	padding-left:20px;
+	border-left:dotted 1px #ccc;
+	border:2px solid;
 }
 .my-hr {
 	border-top: dotted 1px gray;
