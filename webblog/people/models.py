@@ -20,16 +20,8 @@ class Photo(models.Model):
 	def get_img_url(self):
 		return "%s" % self.image.url
 	
-	def save(self):
-		temp = Photo.objects.all().filter(active=True,owner__id=self.owner)
-		if 0 == temp.count():
-			super(Photo,self).save()
-		else:
-			for p in temp:
-				p.active = False
-				p.save()
-		super(Photo,self).save()
-			
+	def __unicode__(self):
+		return '%s\' images' % self.owner.username
 		
 class People(models.Model):
 	GENDER_CHOICES = (

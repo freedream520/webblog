@@ -6,6 +6,10 @@
 		{% load static %}
 		<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/global.css" media="screen"/>
 		<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/pygments.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/thickbox.css" />
+		<link rel="shortcut icon" href="{% get_static_prefix %}favicon.ico"/>
+		<script type="text/javascript" src="{% get_static_prefix %}js/jquery.js"></script>
+		<script type="text/javascript" src="{% get_static_prefix %}js/thickbox-compressed.js"></script>
 	</head>
 	<body >
 		
@@ -20,9 +24,16 @@
 			<div id="sider" class="sider">
 				<h2>Navigation</h2>
 				<ul id="main-nav">
+						
+					{% if user.is_authentitcated %}
+						 welcome {{ user.userame }} (<a href="/accounts/logout/">注销</a>)|
+				    {% else %}
+						{% include "login.html" %}|{% include  "register.html" %}|
+					{% endif %}	
 						<a href="/feeds/recent/">Rss Feed</a> |
-						<a href="/admin/">Admin</a>
-						<div class="my-hr"></div>
+					
+					<div class="my-hr"></div>
+					
 					<li id="main-nav-index">
 						<a href="/">首页</a>
 					</li>

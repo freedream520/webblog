@@ -4,10 +4,14 @@ from django.views.generic.simple import direct_to_template
 from django.contrib import admin
 admin.autodiscover()
 from django.conf.urls.static import static
+from django.contrib.auth.views import login
+
+
 
 from blog.urls import entries,links,categories
 from tagging.urls import tags
 from codeShare.urls import snippets
+from people.urls import people_urls
 
 #for feed
 from blog.feed import *
@@ -24,8 +28,11 @@ urlpatterns = patterns('',
 	url(r'^tag/',include(tags)),
 	url(r'^snippet/',include(snippets)),
 	url(r'^comments/',include('django.contrib.comments.urls')),
+	url(r'^people/',include(people_urls)),
 	# for feed
 	url(r'^feeds/(?P<url>.*)/$','django.contrib.syndication.views.feed',{'feed_dict':feeds_url_2_view}),
+	# for login,logout,register
+	url(r'^/account/login/$',login),
 )
 
 
