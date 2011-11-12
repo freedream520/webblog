@@ -25,13 +25,16 @@
 				<h2>Navigation</h2>
 				<ul id="main-nav">
 						
-					{% if user.is_authentitcated %}
-						 welcome {{ user.userame }} (<a href="/accounts/logout/">注销</a>)|
+					{% if user.is_authenticated %}
+						欢迎 {{ user.username }} (<a href="/accounts/logout/">注销</a>)			
+						{% load msg_box %}
+						{% get_msg_new user.id %}
+						<br/>	
 				    {% else %}
 						{% include "login.html" %}|{% include  "register.html" %}|
 					{% endif %}	
-						<a href="/feeds/recent/">Rss Feed</a> |
 					
+				
 					<div class="my-hr"></div>
 					
 					<li id="main-nav-index">
@@ -43,13 +46,15 @@
 					<li id="main-nav-categories">
 						<a href="/category/">日志分类</a>
 					</li>
-					<li id="mian-nav-tags">
+					<li id="main-nav-tags">
 						<a href="/tag/">日志标签</a>
 					</li>
-					<li id="mian-nav-snippets">
+					<li id="main-nav-snippets">
 						<a href="/snippet/">源代码</a>
 					</li>
-
+					<li id="main-nav-feeds">
+						<a href="/feeds/recent/">订阅Rss</a> 
+					</li>
 				</ul>
 				<h2>What is this?</h2>
 				{% block whatis %}{% endblock %}

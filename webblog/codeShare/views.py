@@ -1,4 +1,4 @@
-from codeShare.models import Snippet
+from codeShare.models import Snippet,Language
 from django.shortcuts import render_to_response,get_object_or_404
 from django.template import RequestContext
 
@@ -17,5 +17,5 @@ def show_snippet_by_id(request,sp_id):
 	
 def show_by_lang(request,lang_id):
 	obj_list = Snippet.objects.all().filter(language__id=lang_id)
-	variables = RequestContext(request,{'obj_list':obj_list})
+	variables = RequestContext(request,{'obj_list':obj_list,'lang_name':obj_list[0].language})
 	return render_to_response('snippet/show_all.html',variables)

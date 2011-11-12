@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+{{ msg.title }}
+{{ msg.from_user }}
+{{ msg.pub_date|date:"Y-m-d" }}
+{{ msg.content }}
+{{ msg.parent }}
+{% if msg.bool_read %}
+已读{% else %}未读{% endif %}
+{% endblock %}

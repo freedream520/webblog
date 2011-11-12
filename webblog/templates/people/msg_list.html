@@ -1,0 +1,7 @@
+<ul>
+{% for msg in msg_list %}
+<li><a href="/msg/{{ msg.id }}/">{{ msg.title }}</a>(by <a href="/people/{{ msg.from_user.id}}/">{{ msg.from_user}}</a>@{{ msg.pub_date }})</li>
+{% endfor %}
+</ul>
+
+

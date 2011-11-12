@@ -1,9 +1,21 @@
-{% extends "people/base_people.html" %}
+{% extends "base.html" %}
+
 {% block content %}
-{{ obj }}
-{{ tmp }}
-<br/>
-{{ user }}
-{{ u_id }}
-{{ p_id }}
+<h3>Personal Infomation</h3>
+{{ obj.name }}
+{% if obj.headshot %}
+{% load thumbnail %}
+<a href="{{ obj.headshot.get_img_url }}"/>xxx<img src='{{ obj.headshot.path|thumbnail:"width=200,height=250"}}'/></a>
+<a href="{{ obj.headshot.get_img_url }}"/>xxx<img src='{{ obj.headshot.path }}'/></a>
+{% endif %}
+{{ obj.depart }}
+{{ obj.sex }}
+{{ obj.birthday }}
+
+
+<h3>Message Box </h3>
+{% load msg_box %}
+{% get_msg_list user.id %}
+
+
 {% endblock %}

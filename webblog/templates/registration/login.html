@@ -1,6 +1,14 @@
-<a href="TB_inline?height=155&width=400&inlineId=loginWindow" class="thickbox">login </a>
-<div id="loginWindow" style="display:none;" >
-  <form action="/accounts/login/?next={{ request.path }}" method="post">{% csrf_token %}
+{% extends "base.html" %}
+{% block _title %}
+<h2> 兄弟，报上名来！</h2>
+{% endblock %}
+{% block content %}
+
+  {% if form.errors %}
+    <p class="error">Sorry, that's not a valid username or password</p>
+  {% endif %}
+
+  <form action="" method="post">{% csrf_token %}
 	<fieldset>
 		<legend>Login in </legend>
 			 <label for="username">User name:</label>
@@ -8,9 +16,8 @@
    			 <label for="password">Password   : </label>
     		<input type="password" name="password" value="" id="password">
 	 		<br/>
-	requet:	{{ request.path }}
     <input type="submit" value="login" />
 	</fieldset>
-    </form>
-</div>
+  </form>
 
+{% endblock %}

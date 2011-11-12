@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <h2> 源代码</h2>
-<h3> 源代码列表 </h3>
+<h3> {{ lang_name }}源代码列表 </h3>
 {% for snippet in obj_list %}
 <li><a href="/snippet/{{ snippet.id }}/">{{ snippet.title }}<a/></li>
 

@@ -1,8 +1,12 @@
-{% load msg_box %}
+ {% if msg_cnt %}
+您有{{ msg_cnt }}条<a href="TB_inline?height=155&width=400&inlineId=newMsgWindow" class="thickbox">新消息</a> 
+<div id="newMsgWindow" style="display:none;" >
 <ul>
-{% for msg in msg_list %}
-<li>{{ msg.title }}</li>
+{% for msg in msg_new %}
+<li><a href="/msg/{{ msg.id }}">{{ msg.title }}</a>(by<a href="/people/{{  msg.from_user.id }}/">{{ msg.from_user.username }}</a>@{{ msg.pub_date|date:"Y-m-d" }})</li>
 {% endfor %}
 </ul>
-
+</div>
+{% else %}
+{% endif %}
 

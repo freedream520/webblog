@@ -5,14 +5,14 @@ from django.contrib import admin
 admin.autodiscover()
 from django.conf.urls.static import static
 from django.contrib.auth.views import login
-
-
+from django.views.generic.simple import direct_to_template
 
 from blog.urls import entries,links,categories
 from tagging.urls import tags
 from codeShare.urls import snippets
 from people.urls import people_urls
-
+from views import register,logout_page
+from people.views import show_msg_by_id
 #for feed
 from blog.feed import *
 feeds_url_2_view = {
@@ -32,7 +32,13 @@ urlpatterns = patterns('',
 	# for feed
 	url(r'^feeds/(?P<url>.*)/$','django.contrib.syndication.views.feed',{'feed_dict':feeds_url_2_view}),
 	# for login,logout,register
-	url(r'^/account/login/$',login),
+	url(r'^accounts/login/$',login),
+	url(r'^accounts/logout/$',logout_page),
+	url(r'^accounts/register/$',register),
+	url(r'^accounts/profile/$',direct_to_template,{'template':'registration/welcome.html'}),
+	url(r'^register/success/$',direct_to_template,{'template':'registration/success.html'}),
+	# for message
+	url(r'^msg/(?P<msg_id>\d+)/$',show_msg_by_id),
 )
 
 
