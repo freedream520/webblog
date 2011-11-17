@@ -13,6 +13,8 @@ from codeShare.urls import snippets
 from people.urls import people_urls
 from views import register,logout_page
 from people.views import show_msg_by_id
+#for friendship
+from people.views import show_friend , friend_invite,friend_accept,make_friend,ignore_msg
 #for feed
 from blog.feed import *
 feeds_url_2_view = {
@@ -39,6 +41,16 @@ urlpatterns = patterns('',
 	url(r'^register/success/$',direct_to_template,{'template':'registration/success.html'}),
 	# for message
 	url(r'^msg/(?P<msg_id>\d+)/$',show_msg_by_id),
+	url(r'^friends/$',show_friend),
+	#url(r'^confirm/(\d+)/$',confirm_friendship),
+	url(r'^ignore/(\d+)/$',ignore_msg),
+	#url(r'^delete/(\d+)/$',delete_friendship),
+
+	# friend invite
+	url(r'^friend/invite/$',friend_invite),
+	url('^friend/accept/(\w+)/$',friend_accept),
+	url('^make/friend/$',make_friend),
+	url(r'^err/$',direct_to_template,{'template':'show_error.html'}),
 )
 
 

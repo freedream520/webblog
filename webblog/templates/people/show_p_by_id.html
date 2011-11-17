@@ -2,20 +2,21 @@
 
 {% block content %}
 <h3>Personal Infomation</h3>
-{{ obj.name }}
 {% if obj.headshot %}
 {% load thumbnail %}
-<a href="{{ obj.headshot.get_img_url }}"/>xxx<img src='{{ obj.headshot.path|thumbnail:"width=200,height=250"}}'/></a>
-<a href="{{ obj.headshot.get_img_url }}"/>xxx<img src='{{ obj.headshot.path }}'/></a>
+<a href="{{ obj.headshot.get_img_url }}"/><img src='{{ obj.headshot.get_img_url|thumbnail:"width=200,height=250" }}'/></a>
 {% endif %}
-{{ obj.depart }}
-{{ obj.sex }}
-{{ obj.birthday }}
+<hr/>
+姓名：{{ obj.name }}<br/>
+单位：{{ obj.depart }}<br/>
+性别：{% if  obj.sex %} 男 {% else %} 女 {% endif %}<br/>
+生日：{{ obj.birthday|date:"Y-m-d" }}<br/>
 
-
+{% if obj.name.id == user.id %}
+<!-- 如果登录者和被查看的人是同一个人，则显示msg_box  -->
 <h3>Message Box </h3>
 {% load msg_box %}
 {% get_msg_list user.id %}
-
+{% endif %}
 
 {% endblock %}

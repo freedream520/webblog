@@ -43,14 +43,16 @@
 					<li id="main-nav-entries">
 						<a href="/entry/">日志</a>
 					</li>
-					<li id="main-nav-categories">
-						<a href="/category/">日志分类</a>
-					</li>
-					<li id="main-nav-tags">
-						<a href="/tag/">日志标签</a>
+					<li id="main-nav-friends">
+						<a href="/friends/">好友</a>
+						{% load new_friend_apply %}
+						{% get_new_friend_apply_list user.id %}
 					</li>
 					<li id="main-nav-snippets">
 						<a href="/snippet/">源代码</a>
+					</li>
+					<li id="main-nav-people">
+						<a href="/people/">People</a>
 					</li>
 					<li id="main-nav-feeds">
 						<a href="/feeds/recent/">订阅Rss</a> 

@@ -1,0 +1,14 @@
+ {% if obj_cnt %}
+	<a href="TB_inline?height=155&width=400&inlineId=newFriendWindow" class="thickbox"><font color="red">{{ obj_cnt }}加好友申请</font></a> 
+	<div id="newFriendWindow" style="display:none;" >
+	<ul>
+	{% if obj_list %}
+		{% for obj in obj_list %}
+		<li> {{ obj }} <a href="{{ obj.content }} ">确认</a> | <a href="/ignore/{{ obj.id }}/?next={{ request.path }}"/>忽略</a>
+		path: {{ request.path }} ?!!!!!? </li>
+		{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
+{% endif %}
+

@@ -18,6 +18,7 @@ APPS_STATICFILES_DIRS_codeShare=os.path.join(HERE,'codeShare/static')
 APPS_STATICFILES_DIRS_people=os.path.join(HERE,'people/static')
 				
 DOMAIN_NAME = 'http://localhost:8000'
+
 ################################################
 ##---end--- custome setting for the project.##
 ################################################
@@ -104,3 +105,13 @@ TEMPLATE_CONTEXT_PROCESSORS=(
 	"django.core.context_processors.i18n",
 	"django.core.context_processors.request",
 )
+
+
+### test for send link via email
+SITE_HOST = '127.0.0.1:8000'
+DEFAULT_FROM_EMAIL = 'guoguowww818@126.com' #'fever\'s website <fevernova.life@gamil.com>'
+EMAIL_HOST = 'smtp.126.com'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'guoguowww818@126.com'
+EMAIL_HOST_PASSWORD = '110110'
+

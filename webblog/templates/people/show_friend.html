@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} {{ user.username }}'s Friends{% endblock %}
+
+{% block content %} 
+{% if obj_list %}
+	<h2>Friends confirmed.</h2> <ul>
+	{% for obj in obj_list %}
+				<li> {{ obj }} <a href="/people/{{ obj.to_friend.id }}/">{{ obj.to_friend.username }} </a></li>
+			
+	{% endfor %}
+	</ul>
+{% else %}
+	no firends 
+{% endif %}
+<hr/>
+
+{% endblock %}

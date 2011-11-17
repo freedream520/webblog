@@ -1,9 +1,9 @@
-{% extends "people/base_people.html" %}
+{% extends "base.html" %}
 {% block content %}
 
 {% for p in object_list %}
 
-{{ p }}
+<a href="/people/{{ p.id }}">{{ p }}</a> {% include "people/invite.html" %} <br/>
 {% endfor %}
 
 {% endblock %}

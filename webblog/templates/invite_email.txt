@@ -1,0 +1,7 @@
+Hi {{ name }},
+{{ sender }} invited you to join my tiny website(by fever),
+a website where you can post and share your bookmarks with friends!
+To accept the invitation, please click the link below:
+{{ link }}
+-- Django website by fever
+
